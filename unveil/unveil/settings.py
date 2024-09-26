@@ -82,9 +82,9 @@ WSGI_APPLICATION = "unveil.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-use_platformsh = env("USE_PLATFORMSH", False)
+use_platformsh = env("USE_PLATFORMSH", "false")
 
-if not use_platformsh:
+if use_platformsh.lower() == "false":
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
